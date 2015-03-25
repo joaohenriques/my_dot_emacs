@@ -12,7 +12,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; theme and interface ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;; 
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -25,7 +25,7 @@
 
 ;; highlight line background
 (global-hl-line-mode 1) 
-
+ 
 (scroll-bar-mode 1)
 (tool-bar-mode 0)
 
@@ -44,6 +44,15 @@
 (defun linum-on ()
   (unless (or (minibufferp) (member major-mode linum-disabled-modes-list))
     (linum-mode 1)))
+
+;; prevent creation of backup files on same dir
+(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+  backup-by-copying t    ; Don't delink hardlinks
+  version-control t      ; Use version numbers on backups
+  delete-old-versions t  ; Automatically delete excess backups
+  kept-new-versions 20   ; how many of the newest versions to keep
+  kept-old-versions 5    ; and how many of the old
+  )
 
 ;; whitespace
 (require 'whitespace)
