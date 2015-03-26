@@ -250,6 +250,10 @@
 
 ;; plantuml-mode
 (require 'plantuml-mode)
+;; Associate .uml and .plantuml to plantuml-mode
+(setq auto-mode-alist
+      (append '(("\\.uml$" . plantuml-mode)
+                ("\\.plantuml$" . plantuml-mode)) auto-mode-alist))
 
 ;;popwin
 (require 'popwin)
@@ -269,3 +273,7 @@
 (eval-after-load "python"
   '(define-key python-mode-map "\C-cx" 'jedi-direx:pop-to-buffer))
 (add-hook 'jedi-mode-hook 'jedi-direx:setup)
+
+
+;;
+(delete-other-windows)
