@@ -1,0 +1,8 @@
+(setq plantuml-jar-path (expand-file-name "<path to plantuml jar"))
+(setq config_path (expand-file-name "<path to config>"))
+
+(load (concat config_path "init.el"))
+
+
+
+
